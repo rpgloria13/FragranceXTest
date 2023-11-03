@@ -5,17 +5,25 @@ async function runTest() {
     const driver = new Builder().forBrowser('chrome').build();
 
     try {
+
+        console.log("===== Test started =====")
         // a. Go to fragrancex.com
         await driver.get('https://www.fragrancex.com');
 
+        // Close modal 
+        await driver.wait(until.elementIsVisible(driver.findElement(By.xpath("//div[@id='coupon-popup']"))), 50000);
+        const closeModal = await driver.findElement(By.xpath("//img[@class='close-popup']"));
+        await closeModal.click();
+
         // b. Store all links in an object
-        const allLinks = await driver.findElements(By.tagName('a'));
+        const allLinks = await driver.findElements(By.xpath('//a'));
         const linksObject = {};
         for (let i = 0; i < allLinks.length; i++) {
             const linkText = await allLinks[i].getText();
             const linkHref = await allLinks[i].getAttribute('href');
             linksObject[linkText] = linkHref;
         }
+        console.log(linksObject)
 
         // c. Log/store all Perfume names found under “Top Picks For You” section
         const topPicksSection = await driver.findElement(By.xpath('//h2[text()="Top picks for you"]'));
@@ -61,6 +69,7 @@ async function runTest() {
 
         // End the test
         await driver.sleep(5000);
+        console.log("===== Test finished =====");
     } finally {
         driver.quit();
     }
