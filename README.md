@@ -8,8 +8,6 @@ This repository contains a sample project for running Selenium WebDriver tests i
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Running Tests](#running-tests)
-- [Project Structure](#project-structure)
-- [License](#license)
 
 ## Getting Started
 
@@ -31,3 +29,14 @@ To set up this project, follow these steps:
 
    ```bash
    [git clone https://github.com/yourusername/selenium-javascript-repo.git](https://github.com/rpgloria13/FragranceXTest.git)https://github.com/rpgloria13/FragranceXTest.git
+
+## Running Tests
+
+To run the Selenium WebDriver tests, follow these steps:
+
+1. Download the ChromeDriver executable compatible with your Chrome browser version and place it in the project directory.
+
+2. Create your Selenium WebDriver tests using JavaScript and save them in the tests directory.
+
+3. To run the test, use the following command: node + (name of test) e.g **node test**
+
