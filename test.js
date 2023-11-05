@@ -68,7 +68,6 @@ async function runTest() {
         assert.strictEqual(newBagCountText, '5', `Text mismatch: ${newBagCountText} != '5'`);
 
         // End the test
-        await driver.sleep(5000);
         console.log("===== Test finished =====");
     } finally {
         driver.quit();
